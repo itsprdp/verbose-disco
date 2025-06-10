@@ -114,11 +114,7 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
   };
 
   const handlePractice = () => {
-    Alert.alert(
-      'Letter Tracing',
-      'Letter tracing practice will be available in a future update!',
-      [{ text: 'OK' }]
-    );
+    setActiveTab('vowels');
   };
 
   const handleQuizComplete = (score: number) => {
@@ -213,11 +209,11 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
             />
             
             <LearningModeButton
-              title="Pronunciation"
-              subtitle="Listen and repeat sounds"
-              icon="volume-high-outline"
+              title="Letter Recognition"
+              subtitle="Practice identifying letters"
+              icon="eye-outline"
               color="#e74c3c"
-              onPress={() => Alert.alert('Coming Soon', 'Audio features will be available soon!')}
+              onPress={() => setShowQuiz(true)}
             />
             
             <LearningModeButton
@@ -237,11 +233,11 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
             />
             
             <LearningModeButton
-              title="Symbol Practice"
+              title="Special Symbols"
               subtitle="Learn special marks and symbols"
               icon="medical-outline"
               color="#34495e"
-              onPress={() => Alert.alert('Symbols', 'Symbol practice coming soon! Check the conjuncts section for some special symbols.')}
+              onPress={() => setActiveTab('conjuncts')}
             />
             
             <LearningModeButton
@@ -275,61 +271,70 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
         </View>
       </HeaderSafeArea>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabContainer}>
-        <TabButton
-          title="Vowels"
-          subtitle="സ്വരങ്ങൾ"
-          count={enhancedVowels.length}
-          icon="ellipse-outline"
-          isActive={activeTab === 'vowels'}
-          onPress={() => setActiveTab('vowels')}
-        />
-        <TabButton
-          title="Consonants"
-          subtitle="വ്യഞ്ജനങ്ങൾ"
-          count={enhancedConsonants.length}
-          icon="square-outline"
-          isActive={activeTab === 'consonants'}
-          onPress={() => setActiveTab('consonants')}
-        />
-        <TabButton
-          title="Numbers"
-          subtitle="സംഖ്യകൾ"
-          count={malayalamNumbers.length}
-          icon="calculator-outline"
-          isActive={activeTab === 'numbers'}
-          onPress={() => setActiveTab('numbers')}
-        />
-        <TabButton
-          title="Conjuncts"
-          subtitle="സംയുക്തങ്ങൾ"
-          count={conjuncts.length}
-          icon="link-outline"
-          isActive={activeTab === 'conjuncts'}
-          onPress={() => setActiveTab('conjuncts')}
-        />
-        <TabButton
-          title="Practice"
-          subtitle="പരിശീലനം"
-          count={completedLetters.size}
-          icon="school-outline"
-          isActive={(activeTab as TabType) === 'practice'}
-          onPress={() => setActiveTab('practice')}
-        />
-      </ScrollView>
+      <View style={styles.compactTabContainer}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tabScrollContent}>
+          <TouchableOpacity
+            style={[styles.compactTab, activeTab === 'vowels' && styles.activeCompactTab]}
+            onPress={() => setActiveTab('vowels')}
+          >
+            <Text style={[styles.compactTabText, activeTab === 'vowels' && styles.activeCompactTabText]}>
+              അ ({enhancedVowels.length})
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.compactTab, activeTab === 'consonants' && styles.activeCompactTab]}
+            onPress={() => setActiveTab('consonants')}
+          >
+            <Text style={[styles.compactTabText, activeTab === 'consonants' && styles.activeCompactTabText]}>
+              ക ({enhancedConsonants.length})
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.compactTab, activeTab === 'numbers' && styles.activeCompactTab]}
+            onPress={() => setActiveTab('numbers')}
+          >
+            <Text style={[styles.compactTabText, activeTab === 'numbers' && styles.activeCompactTabText]}>
+              ൧ ({malayalamNumbers.length})
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.compactTab, activeTab === 'conjuncts' && styles.activeCompactTab]}
+            onPress={() => setActiveTab('conjuncts')}
+          >
+            <Text style={[styles.compactTabText, activeTab === 'conjuncts' && styles.activeCompactTabText]}>
+              ക്ക ({conjuncts.length})
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.compactTab, activeTab === 'practice' && styles.activeCompactTab]}
+            onPress={() => setActiveTab('practice')}
+          >
+            <Ionicons name="school" size={16} color={activeTab === 'practice' ? 'white' : '#7f8c8d'} />
+            <Text style={[styles.compactTabText, activeTab === 'practice' && styles.activeCompactTabText]}>
+              ({completedLetters.size})
+            </Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
 
-      <ScrollView style={styles.lettersContainer} showsVerticalScrollIndicator={false}>
-        <View style={styles.lettersGrid}>
-          {getCurrentLetters().map((letter) => (
-            <EnhancedLetterCard
-              key={letter.id}
-              letter={letter}
-              onPress={handleLetterPress}
-              isCompleted={completedLetters.has(letter.id)}
-            />
-          ))}
-        </View>
-      </ScrollView>
+      <View style={styles.contentContainer}>
+        <ScrollView 
+          style={styles.lettersScrollView} 
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.lettersContentContainer}
+        >
+          <View style={styles.lettersGrid}>
+            {getCurrentLetters().map((letter) => (
+              <EnhancedLetterCard
+                key={letter.id}
+                letter={letter}
+                onPress={handleLetterPress}
+                isCompleted={completedLetters.has(letter.id)}
+              />
+            ))}
+          </View>
+        </ScrollView>
+      </View>
 
       <Modal
         visible={selectedLetter !== null}
@@ -397,39 +402,12 @@ const styles = StyleSheet.create({
     color: '#bdc3c7',
     fontStyle: 'italic',
   },
-  tabContainer: {
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-  },
-  tabButton: {
-    flex: 1,
-    paddingVertical: 10,
-    paddingHorizontal: 5,
-    alignItems: 'center',
-    marginHorizontal: 5,
-    borderRadius: 8,
-    backgroundColor: '#ecf0f1',
-  },
-  activeTab: {
-    backgroundColor: '#3498db',
-  },
-  tabText: {
-    fontSize: 12,
-    color: '#7f8c8d',
-    textAlign: 'center',
-  },
-  activeTabText: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
   selectedLetterContainer: {
     backgroundColor: 'white',
-    padding: 20,
+    padding: 15,
     alignItems: 'center',
-    marginHorizontal: 20,
-    marginVertical: 10,
+    marginHorizontal: 15,
+    marginVertical: 8,
     borderRadius: 12,
     shadowColor: '#000',
     shadowOffset: {
@@ -456,21 +434,17 @@ const styles = StyleSheet.create({
     color: '#7f8c8d',
     textTransform: 'capitalize',
   },
-  lettersContainer: {
-    flex: 1,
-    padding: 20,
-  },
   lettersGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
   },
   letterCard: {
-    width: '22%',
-    aspectRatio: 1,
+    width: '18%',
+    aspectRatio: 0.9,
     backgroundColor: 'white',
-    marginBottom: 15,
-    borderRadius: 12,
+    marginBottom: 8,
+    borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#000',
@@ -478,24 +452,24 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.08,
     shadowRadius: 2,
-    elevation: 3,
+    elevation: 2,
   },
   malayalamLetter: {
-    fontSize: 24,
+    fontSize: 20,
     color: '#e74c3c',
     fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  transliteration: {
-    fontSize: 12,
-    color: '#7f8c8d',
-    textAlign: 'center',
     marginBottom: 2,
   },
-  letterType: {
+  transliteration: {
     fontSize: 10,
+    color: '#7f8c8d',
+    textAlign: 'center',
+    marginBottom: 1,
+  },
+  letterType: {
+    fontSize: 8,
     color: '#95a5a6',
     textAlign: 'center',
     textTransform: 'capitalize',
@@ -525,51 +499,25 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 12,
     borderBottomLeftRadius: 12,
   },
-  tabSubtext: {
-    fontSize: 10,
-    color: '#95a5a6',
-    textAlign: 'center',
-    marginTop: 2,
-  },
-  activeTabSubtext: {
-    color: '#ecf0f1',
-  },
-  countBadge: {
-    backgroundColor: '#bdc3c7',
-    borderRadius: 10,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    marginTop: 5,
-  },
-  activeCountBadge: {
-    backgroundColor: '#ecf0f1',
-  },
-  countText: {
-    fontSize: 10,
-    color: '#2c3e50',
-    fontWeight: 'bold',
-  },
-  activeCountText: {
-    color: '#3498db',
-  },
   practiceContainer: {
     flex: 1,
     backgroundColor: '#f8f9fa',
   },
   practiceModesContainer: {
-    padding: 20,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#2c3e50',
-    marginBottom: 20,
+    marginBottom: 15,
     textAlign: 'center',
   },
   modeButton: {
     backgroundColor: 'white',
     borderRadius: 12,
-    marginBottom: 15,
+    marginBottom: 12,
     borderLeftWidth: 4,
     shadowColor: '#000',
     shadowOffset: {
@@ -583,7 +531,7 @@ const styles = StyleSheet.create({
   modeButtonContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 20,
+    padding: 15,
   },
   modeButtonText: {
     flex: 1,
@@ -598,5 +546,46 @@ const styles = StyleSheet.create({
   modeButtonSubtitle: {
     fontSize: 14,
     color: '#7f8c8d',
+  },
+  compactTabContainer: {
+    backgroundColor: 'white',
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ecf0f1',
+  },
+  tabScrollContent: {
+    paddingHorizontal: 15,
+  },
+  compactTab: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    marginRight: 8,
+    borderRadius: 20,
+    backgroundColor: '#f8f9fa',
+    minWidth: 50,
+    justifyContent: 'center',
+  },
+  activeCompactTab: {
+    backgroundColor: '#3498db',
+  },
+  compactTabText: {
+    fontSize: 14,
+    color: '#7f8c8d',
+    fontWeight: '600',
+    marginLeft: 4,
+  },
+  activeCompactTabText: {
+    color: 'white',
+  },
+  contentContainer: {
+    flex: 1,
+  },
+  lettersScrollView: {
+    flex: 1,
+  },
+  lettersContentContainer: {
+    padding: 12,
   },
 });

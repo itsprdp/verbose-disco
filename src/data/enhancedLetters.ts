@@ -7,7 +7,6 @@ export interface EnhancedMalayalamLetter extends MalayalamLetter {
     transliteration: string;
     english: string;
   }>;
-  formationSteps: string[];
   difficulty: 'beginner' | 'intermediate' | 'advanced';
   category: 'vowel' | 'consonant' | 'number' | 'conjunct' | 'symbol';
   description: string;
@@ -28,11 +27,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'അച്ഛൻ', transliteration: 'achchan', english: 'father' },
       { word: 'അവൻ', transliteration: 'avan', english: 'he' }
     ],
-    formationSteps: [
-      'Start with a curved line from top',
-      'Add a horizontal line in the middle',
-      'Complete with a small curve at the bottom'
-    ]
   },
   {
     id: 'v2',
@@ -48,11 +42,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'ആന', transliteration: 'aana', english: 'elephant' },
       { word: 'ആപ്പിൾ', transliteration: 'apple', english: 'apple' }
     ],
-    formationSteps: [
-      'Start with the അ shape',
-      'Add a vertical line on the right',
-      'Connect with a small horizontal stroke'
-    ]
   },
   {
     id: 'v3',
@@ -68,11 +57,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'ഇവിടെ', transliteration: 'ivide', english: 'here' },
       { word: 'ഇല', transliteration: 'ila', english: 'leaf' }
     ],
-    formationSteps: [
-      'Draw a curved line like a backwards C',
-      'Add a small hook at the top',
-      'Complete with a dot or small line'
-    ]
   },
   {
     id: 'v4',
@@ -88,11 +72,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'ഈശ്വരൻ', transliteration: 'eeshwaran', english: 'God' },
       { word: 'നീ', transliteration: 'nee', english: 'you' }
     ],
-    formationSteps: [
-      'Start with the ഇ shape',
-      'Extend the curved line',
-      'Add the length marker'
-    ]
   },
   {
     id: 'v5',
@@ -108,11 +87,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'ഉള്ളി', transliteration: 'ulli', english: 'onion' },
       { word: 'ഉണ്ട്', transliteration: 'undu', english: 'there is' }
     ],
-    formationSteps: [
-      'Draw a small circle',
-      'Add a tail going down',
-      'Connect smoothly'
-    ]
   },
   {
     id: 'v6',
@@ -128,11 +102,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'ഊർജ്ജം', transliteration: 'oorjjam', english: 'energy' },
       { word: 'പൂ', transliteration: 'poo', english: 'flower' }
     ],
-    formationSteps: [
-      'Start with ഉ shape',
-      'Extend the tail',
-      'Add length indicator'
-    ]
   },
   {
     id: 'v7',
@@ -147,11 +116,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'ഋതു', transliteration: 'ruthu', english: 'season' },
       { word: 'ഋഷി', transliteration: 'rushi', english: 'sage' }
     ],
-    formationSteps: [
-      'Draw a curved top',
-      'Add vertical line',
-      'Complete with bottom curve'
-    ]
   },
   {
     id: 'v8',
@@ -167,11 +131,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'എവിടെ', transliteration: 'evide', english: 'where' },
       { word: 'എഴുത്ത്', transliteration: 'ezhuthu', english: 'writing' }
     ],
-    formationSteps: [
-      'Start with horizontal line',
-      'Add curved left side',
-      'Complete with small hook'
-    ]
   },
   {
     id: 'v9',
@@ -187,11 +146,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'ഏകദേശം', transliteration: 'ekadesham', english: 'approximately' },
       { word: 'കേരളം', transliteration: 'keralam', english: 'Kerala' }
     ],
-    formationSteps: [
-      'Start with എ shape',
-      'Extend the horizontal line',
-      'Add length marker'
-    ]
   },
   {
     id: 'v10',
@@ -207,11 +161,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'കൈ', transliteration: 'kai', english: 'hand' },
       { word: 'പൈസ', transliteration: 'paisa', english: 'money' }
     ],
-    formationSteps: [
-      'Draw എ shape',
-      'Add small ഇ mark above',
-      'Connect properly'
-    ]
   },
   {
     id: 'v11',
@@ -227,11 +176,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'ഒരു', transliteration: 'oru', english: 'a/an' },
       { word: 'ഒട്ടിക്കുക', transliteration: 'ottikkuka', english: 'to stick' }
     ],
-    formationSteps: [
-      'Draw curved top line',
-      'Add left vertical line',
-      'Complete with bottom curve'
-    ]
   },
   {
     id: 'v12',
@@ -247,11 +191,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'ഓടുക', transliteration: 'oduka', english: 'to run' },
       { word: 'ഓർമ്മ', transliteration: 'orma', english: 'memory' }
     ],
-    formationSteps: [
-      'Start with ഒ shape',
-      'Extend the curve',
-      'Add length indicator'
-    ]
   },
   {
     id: 'v13',
@@ -266,11 +205,6 @@ export const enhancedVowels: EnhancedMalayalamLetter[] = [
       { word: 'ഔഷധം', transliteration: 'aushadham', english: 'medicine' },
       { word: 'ഔദ്യോഗികം', transliteration: 'audyogikam', english: 'official' }
     ],
-    formationSteps: [
-      'Draw ഒ shape',
-      'Add ഉ mark above',
-      'Ensure proper connection'
-    ]
   }
 ];
 
@@ -289,11 +223,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'കൈ', transliteration: 'kai', english: 'hand' },
       { word: 'കാർ', transliteration: 'kaar', english: 'car' }
     ],
-    formationSteps: [
-      'Draw vertical line on left',
-      'Add horizontal line at top',
-      'Complete with curved right side'
-    ]
   },
   {
     id: 'c2',
@@ -308,11 +237,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ഖണ്ഡം', transliteration: 'khandam', english: 'piece' },
       { word: 'ഖര്ച്ച്', transliteration: 'kharchu', english: 'expense' }
     ],
-    formationSteps: [
-      'Start with ക shape',
-      'Add extra mark for aspiration',
-      'Ensure proper spacing'
-    ]
   },
   {
     id: 'c3',
@@ -328,11 +252,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ഗോള്', transliteration: 'gol', english: 'goal' },
       { word: 'ഗുരു', transliteration: 'guru', english: 'teacher' }
     ],
-    formationSteps: [
-      'Draw base similar to ക',
-      'Modify the right curve',
-      'Add distinguishing marks'
-    ]
   },
   {
     id: 'c21',
@@ -348,11 +267,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'പുസ്തകം', transliteration: 'pusthakam', english: 'book' },
       { word: 'പൂവ്', transliteration: 'poovu', english: 'flower' }
     ],
-    formationSteps: [
-      'Draw curved top line',
-      'Add vertical line on left',
-      'Complete with horizontal base'
-    ]
   },
   {
     id: 'c25',
@@ -368,11 +282,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'മീൻ', transliteration: 'meen', english: 'fish' },
       { word: 'മാമ്പഴം', transliteration: 'maampazham', english: 'mango' }
     ],
-    formationSteps: [
-      'Draw curved top section',
-      'Add middle horizontal line',
-      'Complete with bottom curve'
-    ]
   },
   {
     id: 'c4',
@@ -387,11 +296,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ഘടന', transliteration: 'ghadana', english: 'structure' },
       { word: 'ഘോഷം', transliteration: 'ghosham', english: 'noise' }
     ],
-    formationSteps: [
-      'Start with ഗ base',
-      'Add aspiration mark',
-      'Complete the form'
-    ]
   },
   {
     id: 'c5',
@@ -406,11 +310,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'മങ്ങ', transliteration: 'manga', english: 'dim' },
       { word: 'രംഗം', transliteration: 'rangam', english: 'stage' }
     ],
-    formationSteps: [
-      'Draw curved top',
-      'Add vertical line',
-      'Complete with bottom loop'
-    ]
   },
   {
     id: 'c6',
@@ -426,11 +325,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ചന്ദ്രൻ', transliteration: 'chandran', english: 'moon' },
       { word: 'ചെറിയ', transliteration: 'cheriya', english: 'small' }
     ],
-    formationSteps: [
-      'Draw horizontal top line',
-      'Add curved left side',
-      'Complete with vertical right'
-    ]
   },
   {
     id: 'c7',
@@ -445,11 +339,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ഛത്രം', transliteration: 'chhatram', english: 'umbrella' },
       { word: 'ഛായ', transliteration: 'chhaaya', english: 'shadow' }
     ],
-    formationSteps: [
-      'Start with ച shape',
-      'Add aspiration marks',
-      'Maintain proper spacing'
-    ]
   },
   {
     id: 'c8',
@@ -465,11 +354,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ജനം', transliteration: 'janam', english: 'people' },
       { word: 'ജീവിതം', transliteration: 'jeevitham', english: 'life' }
     ],
-    formationSteps: [
-      'Draw curved top section',
-      'Add middle horizontal',
-      'Complete with bottom curve'
-    ]
   },
   {
     id: 'c9',
@@ -483,11 +367,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
     examples: [
       { word: 'ഝരി', transliteration: 'jhari', english: 'waterfall' }
     ],
-    formationSteps: [
-      'Base on ജ form',
-      'Add aspiration',
-      'Complete carefully'
-    ]
   },
   {
     id: 'c10',
@@ -502,11 +381,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ഞാൻ', transliteration: 'njaan', english: 'I' },
       { word: 'വിജ്ഞാനം', transliteration: 'vijnjaanam', english: 'knowledge' }
     ],
-    formationSteps: [
-      'Draw distinctive top curve',
-      'Add connecting line',
-      'Complete the form'
-    ]
   },
   {
     id: 'c11',
@@ -521,11 +395,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ടാക്സി', transliteration: 'taxi', english: 'taxi' },
       { word: 'ഇട', transliteration: 'ida', english: 'left' }
     ],
-    formationSteps: [
-      'Draw horizontal base',
-      'Add curved top',
-      'Connect properly'
-    ]
   },
   {
     id: 'c12',
@@ -539,11 +408,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
     examples: [
       { word: 'ഠാണിക്', transliteration: 'thanik', english: 'policeman' }
     ],
-    formationSteps: [
-      'Base on ട',
-      'Add aspiration marks',
-      'Maintain clarity'
-    ]
   },
   {
     id: 'c13',
@@ -558,11 +422,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ഡോക്ടർ', transliteration: 'doctor', english: 'doctor' },
       { word: 'കുടം', transliteration: 'kudam', english: 'pot' }
     ],
-    formationSteps: [
-      'Similar to ട base',
-      'Modify for voicing',
-      'Complete the shape'
-    ]
   },
   {
     id: 'c14',
@@ -576,11 +435,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
     examples: [
       { word: 'ഢക്ക', transliteration: 'dhakka', english: 'drum' }
     ],
-    formationSteps: [
-      'Start with ഡ',
-      'Add aspiration',
-      'Ensure proper form'
-    ]
   },
   {
     id: 'c15',
@@ -595,11 +449,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'കാണുക', transliteration: 'kaanuka', english: 'to see' },
       { word: 'മണ്ണ്', transliteration: 'mannu', english: 'soil' }
     ],
-    formationSteps: [
-      'Draw curved shape',
-      'Add connecting elements',
-      'Complete the nasal form'
-    ]
   },
   {
     id: 'c16',
@@ -615,11 +464,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'തീ', transliteration: 'thee', english: 'fire' },
       { word: 'തുള്ളുക', transliteration: 'thulluka', english: 'to jump' }
     ],
-    formationSteps: [
-      'Draw top horizontal line',
-      'Add curved bottom',
-      'Connect smoothly'
-    ]
   },
   {
     id: 'c17',
@@ -633,11 +477,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
     examples: [
       { word: 'ഥീസിസ്', transliteration: 'thesis', english: 'thesis' }
     ],
-    formationSteps: [
-      'Base on ത shape',
-      'Add aspiration mark',
-      'Maintain dental position'
-    ]
   },
   {
     id: 'c18',
@@ -652,11 +491,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ദിവസം', transliteration: 'divasam', english: 'day' },
       { word: 'വാദം', transliteration: 'vaadam', english: 'argument' }
     ],
-    formationSteps: [
-      'Similar to ത base',
-      'Modify for voicing',
-      'Complete dental form'
-    ]
   },
   {
     id: 'c19',
@@ -671,11 +505,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ധനം', transliteration: 'dhanam', english: 'wealth' },
       { word: 'വധം', transliteration: 'vadham', english: 'killing' }
     ],
-    formationSteps: [
-      'Start with ദ',
-      'Add aspiration',
-      'Maintain dental quality'
-    ]
   },
   {
     id: 'c20',
@@ -691,11 +520,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'മനസ്സ്', transliteration: 'manassu', english: 'mind' },
       { word: 'വൻ', transliteration: 'van', english: 'big' }
     ],
-    formationSteps: [
-      'Draw curved top',
-      'Add vertical line',
-      'Complete nasal form'
-    ]
   },
   {
     id: 'c22',
@@ -710,11 +534,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ഫോൺ', transliteration: 'phone', english: 'phone' },
       { word: 'കഫം', transliteration: 'kapham', english: 'phlegm' }
     ],
-    formationSteps: [
-      'Base similar to പ',
-      'Add aspiration mark',
-      'Distinguish from പ'
-    ]
   },
   {
     id: 'c23',
@@ -730,11 +549,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'കബാബ്', transliteration: 'kabab', english: 'kebab' },
       { word: 'രാബി', transliteration: 'rabi', english: 'rabbi' }
     ],
-    formationSteps: [
-      'Similar to പ structure',
-      'Modify for voicing',
-      'Complete bilabial form'
-    ]
   },
   {
     id: 'c24',
@@ -749,11 +563,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ഭാരം', transliteration: 'bhaaram', english: 'weight' },
       { word: 'ഭയം', transliteration: 'bhayam', english: 'fear' }
     ],
-    formationSteps: [
-      'Start with ബ base',
-      'Add aspiration mark',
-      'Maintain bilabial nature'
-    ]
   },
   {
     id: 'c26',
@@ -768,11 +577,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'യജ്ഞം', transliteration: 'yajnjam', english: 'sacrifice' },
       { word: 'കായം', transliteration: 'kaayam', english: 'body' }
     ],
-    formationSteps: [
-      'Draw distinctive Y-like shape',
-      'Add connecting elements',
-      'Complete approximant form'
-    ]
   },
   {
     id: 'c27',
@@ -788,11 +592,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'കാര്', transliteration: 'kaar', english: 'car' },
       { word: 'പോര്', transliteration: 'por', english: 'go' }
     ],
-    formationSteps: [
-      'Draw curved main body',
-      'Add characteristic hook',
-      'Complete trill form'
-    ]
   },
   {
     id: 'c28',
@@ -807,11 +606,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ലാലിത്യം', transliteration: 'laalithyam', english: 'beauty' },
       { word: 'കലാം', transliteration: 'kalaam', english: 'art' }
     ],
-    formationSteps: [
-      'Draw curved shape',
-      'Add lateral elements',
-      'Complete approximant'
-    ]
   },
   {
     id: 'c29',
@@ -827,11 +621,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'വീട്', transliteration: 'veedu', english: 'house' },
       { word: 'കവിത', transliteration: 'kavitha', english: 'poem' }
     ],
-    formationSteps: [
-      'Draw main curved body',
-      'Add characteristic marks',
-      'Complete approximant form'
-    ]
   },
   {
     id: 'c30',
@@ -846,11 +635,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ശാന്തി', transliteration: 'shaanthi', english: 'peace' },
       { word: 'മീശ', transliteration: 'meesha', english: 'mustache' }
     ],
-    formationSteps: [
-      'Draw complex curved form',
-      'Add palatal elements',
-      'Complete fricative shape'
-    ]
   },
   {
     id: 'c31',
@@ -865,11 +649,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ഷർട്ട്', transliteration: 'shirt', english: 'shirt' },
       { word: 'കുഷ്ഠം', transliteration: 'kushtam', english: 'leprosy' }
     ],
-    formationSteps: [
-      'Similar to ശ base',
-      'Modify for retroflex',
-      'Complete fricative form'
-    ]
   },
   {
     id: 'c32',
@@ -884,11 +663,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'സൂര്യൻ', transliteration: 'sooryan', english: 'sun' },
       { word: 'കുസുമം', transliteration: 'kusumam', english: 'flower' }
     ],
-    formationSteps: [
-      'Draw curved main form',
-      'Add fricative elements',
-      'Complete dental shape'
-    ]
   },
   {
     id: 'c33',
@@ -903,11 +677,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'ഹരി', transliteration: 'hari', english: 'Hari (name)' },
       { word: 'വഹിക്കുക', transliteration: 'vahikkuka', english: 'to carry' }
     ],
-    formationSteps: [
-      'Draw distinctive shape',
-      'Add glottal elements',
-      'Complete fricative form'
-    ]
   },
   {
     id: 'c34',
@@ -922,11 +691,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'മലയാളം', transliteration: 'malayaalam', english: 'Malayalam' },
       { word: 'കേരളം', transliteration: 'keralam', english: 'Kerala' }
     ],
-    formationSteps: [
-      'Draw characteristic loop',
-      'Add retroflex elements',
-      'Complete lateral form'
-    ]
   },
   {
     id: 'c35',
@@ -941,11 +705,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'പഴം', transliteration: 'pazham', english: 'fruit' },
       { word: 'നിഴൽ', transliteration: 'nizhal', english: 'shadow' }
     ],
-    formationSteps: [
-      'Draw complex form',
-      'Add unique elements',
-      'Complete special sound'
-    ]
   },
   {
     id: 'c36',
@@ -960,11 +719,6 @@ export const enhancedConsonants: EnhancedMalayalamLetter[] = [
       { word: 'കാറ്', transliteration: 'kaaru', english: 'car' },
       { word: 'പുറം', transliteration: 'puram', english: 'outside' }
     ],
-    formationSteps: [
-      'Draw strong base',
-      'Add trill elements',
-      'Complete hard sound'
-    ]
   }
 ];
 
@@ -986,11 +740,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'പക്കി', transliteration: 'pakki', english: 'bird' },
       { word: 'മുക്കി', transliteration: 'mukki', english: 'face' }
     ],
-    formationSteps: [
-      'Write first ക without vowel',
-      'Combine with second ക',
-      'Form conjunct shape'
-    ]
   },
   {
     id: 'conj2',
@@ -1005,11 +754,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'പത്തു', transliteration: 'patthu', english: 'ten' },
       { word: 'മുത്ത്', transliteration: 'muthu', english: 'pearl' }
     ],
-    formationSteps: [
-      'Combine ത + ത',
-      'Merge the forms',
-      'Create unified shape'
-    ]
   },
   {
     id: 'conj3',
@@ -1024,11 +768,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'മന്നൻ', transliteration: 'mannan', english: 'king' },
       { word: 'കന്നു', transliteration: 'kannu', english: 'calf' }
     ],
-    formationSteps: [
-      'Combine ന + ന',
-      'Merge nasal forms',
-      'Create double sound'
-    ]
   },
   {
     id: 'conj4',
@@ -1043,11 +782,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'അമ്മ', transliteration: 'amma', english: 'mother' },
       { word: 'കമ്മി', transliteration: 'kammi', english: 'less' }
     ],
-    formationSteps: [
-      'Combine മ + മ',
-      'Form double nasal',
-      'Create unified shape'
-    ]
   },
   {
     id: 'conj5',
@@ -1062,11 +796,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'കല്ല്', transliteration: 'kallu', english: 'stone' },
       { word: 'മല്ലി', transliteration: 'malli', english: 'jasmine' }
     ],
-    formationSteps: [
-      'Combine ള + ള',
-      'Form double retroflex',
-      'Create characteristic shape'
-    ]
   },
   {
     id: 'conj6',
@@ -1081,11 +810,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'കാര്‍', transliteration: 'kaar', english: 'car' },
       { word: 'വാര്‍', transliteration: 'vaar', english: 'news' }
     ],
-    formationSteps: [
-      'Special ര form',
-      'Remove vowel marker',
-      'Create chillu shape'
-    ]
   },
   {
     id: 'conj7',
@@ -1100,11 +824,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'കാന്‍', transliteration: 'kaan', english: 'to see' },
       { word: 'പെന്‍', transliteration: 'pen', english: 'pen' }
     ],
-    formationSteps: [
-      'Special ന form',
-      'Remove vowel marker',
-      'Create chillu shape'
-    ]
   },
   {
     id: 'conj8',
@@ -1119,11 +838,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'അക്ഷരം', transliteration: 'aksharam', english: 'letter' },
       { word: 'വിക്ഷേപണം', transliteration: 'vikshepaanam', english: 'launch' }
     ],
-    formationSteps: [
-      'Combine ക + ഷ',
-      'Form compound sound',
-      'Create special shape'
-    ]
   },
   {
     id: 'conj9',
@@ -1138,11 +852,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'കാസ്സാൻ', transliteration: 'kaassan', english: 'gardener' },
       { word: 'റസ്സൽ', transliteration: 'russel', english: 'Russell' }
     ],
-    formationSteps: [
-      'Combine സ + സ',
-      'Form double fricative',
-      'Create unified shape'
-    ]
   },
   {
     id: 'conj10',
@@ -1157,11 +866,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'അപ്പം', transliteration: 'appam', english: 'rice cake' },
       { word: 'കപ്പ', transliteration: 'kappa', english: 'tapioca' }
     ],
-    formationSteps: [
-      'Combine പ + പ',
-      'Form double stop',
-      'Create characteristic shape'
-    ]
   },
   {
     id: 'conj11',
@@ -1176,11 +880,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'കയ്യ്', transliteration: 'kayyu', english: 'hand' },
       { word: 'പയ്യൻ', transliteration: 'payyan', english: 'boy' }
     ],
-    formationSteps: [
-      'Combine യ + യ',
-      'Form double approximant',
-      'Create flowing shape'
-    ]
   },
   {
     id: 'conj12',
@@ -1195,11 +894,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'ജ്ഞാനം', transliteration: 'jnaanam', english: 'knowledge' },
       { word: 'യജ്ഞം', transliteration: 'yajnam', english: 'sacrifice' }
     ],
-    formationSteps: [
-      'Combine ജ + ഞ',
-      'Form special compound',
-      'Create distinctive shape'
-    ]
   },
   {
     id: 'conj13',
@@ -1214,11 +908,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'കാന്തൻ', transliteration: 'kaanthan', english: 'beloved' },
       { word: 'സന്തം', transliteration: 'santham', english: 'happiness' }
     ],
-    formationSteps: [
-      'Combine ന + ത',
-      'Form nasal-dental',
-      'Create flowing connection'
-    ]
   },
   {
     id: 'conj14',
@@ -1233,11 +922,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'ചന്ദ്രൻ', transliteration: 'chandran', english: 'moon' },
       { word: 'ബന്ധം', transliteration: 'bandham', english: 'relationship' }
     ],
-    formationSteps: [
-      'Combine ന + ദ',
-      'Form nasal-dental voiced',
-      'Create smooth transition'
-    ]
   },
   {
     id: 'conj15',
@@ -1252,11 +936,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'മാങ്ങ', transliteration: 'maanga', english: 'mango' },
       { word: 'വിശ്ശാസം', transliteration: 'vishsaasam', english: 'trust' }
     ],
-    formationSteps: [
-      'Combine ശ + ശ',
-      'Form double fricative',
-      'Create complex shape'
-    ]
   },
   {
     id: 'conj16',
@@ -1271,11 +950,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'ശക്തി', transliteration: 'shakthi', english: 'power' },
       { word: 'ഭക്തി', transliteration: 'bhakthi', english: 'devotion' }
     ],
-    formationSteps: [
-      'Combine ക + ത',
-      'Form stop-dental',
-      'Create compact form'
-    ]
   },
   {
     id: 'conj17',
@@ -1290,11 +964,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'സ്ഥലം', transliteration: 'sthalam', english: 'place' },
       { word: 'ഉപാസ്ഥ', transliteration: 'upastha', english: 'worship' }
     ],
-    formationSteps: [
-      'Combine സ + ത',
-      'Form fricative-dental',
-      'Create joined form'
-    ]
   },
   {
     id: 'conj18',
@@ -1309,11 +978,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'കല്‍', transliteration: 'kal', english: 'stone' },
       { word: 'നിൽ', transliteration: 'nil', english: 'stand' }
     ],
-    formationSteps: [
-      'Special ല form',
-      'Remove vowel marker',
-      'Create chillu shape'
-    ]
   },
   {
     id: 'conj19',
@@ -1328,11 +992,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'കാണ്‍', transliteration: 'kaan', english: 'see' },
       { word: 'വിള്‍', transliteration: 'vil', english: 'lamp' }
     ],
-    formationSteps: [
-      'Special ണ form',
-      'Remove vowel marker',
-      'Create chillu shape'
-    ]
   },
   {
     id: 'conj20',
@@ -1347,11 +1006,6 @@ export const conjuncts: EnhancedMalayalamLetter[] = [
       { word: 'കേരള്‍', transliteration: 'keral', english: 'Kerala' },
       { word: 'പാള്‍', transliteration: 'paal', english: 'milk' }
     ],
-    formationSteps: [
-      'Special ള form',
-      'Remove vowel marker',
-      'Create chillu shape'
-    ]
   }
 ];
 
@@ -1369,11 +1023,6 @@ export const malayalamSymbols: EnhancedMalayalamLetter[] = [
       { word: 'നല്ല ദിവസം।', transliteration: 'nalla divasam.', english: 'Good day.' },
       { word: 'വിദ്യാലയം।', transliteration: 'vidyaalayam.', english: 'School.' }
     ],
-    formationSteps: [
-      'Draw vertical line',
-      'Add small dot below',
-      'Ensure proper spacing'
-    ]
   },
   {
     id: 'sym2',
@@ -1387,11 +1036,6 @@ export const malayalamSymbols: EnhancedMalayalamLetter[] = [
     examples: [
       { word: 'ശ്ലോകം॥', transliteration: 'shlokam||', english: 'End of verse' }
     ],
-    formationSteps: [
-      'Draw two vertical lines',
-      'Add dots below both',
-      'Maintain parallel spacing'
-    ]
   },
   {
     id: 'sym3',
@@ -1406,11 +1050,6 @@ export const malayalamSymbols: EnhancedMalayalamLetter[] = [
       { word: 'സംസ്കാരം', transliteration: 'samskaram', english: 'culture' },
       { word: 'മംഗളം', transliteration: 'mangalam', english: 'auspicious' }
     ],
-    formationSteps: [
-      'Draw small circle',
-      'Add tail going right',
-      'Position above baseline'
-    ]
   },
   {
     id: 'sym4',
@@ -1425,11 +1064,6 @@ export const malayalamSymbols: EnhancedMalayalamLetter[] = [
       { word: 'നമഃ', transliteration: 'namah', english: 'salutations' },
       { word: 'ഗുരവേ നമഃ', transliteration: 'gurave namah', english: 'salutations to the teacher' }
     ],
-    formationSteps: [
-      'Draw two small dots',
-      'Stack vertically',
-      'Position after consonant'
-    ]
   },
   {
     id: 'sym5',
@@ -1444,11 +1078,6 @@ export const malayalamSymbols: EnhancedMalayalamLetter[] = [
       { word: 'കൃഷ്ണൻ്', transliteration: 'krishnan', english: 'Krishna' },
       { word: 'സത്യം്', transliteration: 'satyam', english: 'truth' }
     ],
-    formationSteps: [
-      'Draw small curved mark',
-      'Place below consonant',
-      'Indicates no vowel sound'
-    ]
   }
 ];
 

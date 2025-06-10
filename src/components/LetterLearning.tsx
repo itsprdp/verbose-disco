@@ -47,18 +47,6 @@ export const LetterDetailView: React.FC<LetterDetailViewProps> = ({
               <Text style={styles.sectionTitle}>Description</Text>
               <Text style={styles.descriptionText}>{letter.description}</Text>
             </View>
-
-            <View style={styles.infoSection}>
-              <Text style={styles.sectionTitle}>Formation Steps</Text>
-              {letter.formationSteps.map((step, index) => (
-                <View key={index} style={styles.stepItem}>
-                  <View style={styles.stepNumber}>
-                    <Text style={styles.stepNumberText}>{index + 1}</Text>
-                  </View>
-                  <Text style={styles.stepText}>{step}</Text>
-                </View>
-              ))}
-            </View>
           </ScrollView>
         );
 
@@ -81,12 +69,12 @@ export const LetterDetailView: React.FC<LetterDetailViewProps> = ({
           <View style={styles.tabContent}>
             <Text style={styles.sectionTitle}>Practice Options</Text>
             
-            <TouchableOpacity style={styles.practiceButton} onPress={onPractice}>
+            <TouchableOpacity style={styles.practiceButton} onPress={onQuiz}>
               <View style={styles.practiceButtonContent}>
-                <Ionicons name="create-outline" size={24} color="#3498db" />
+                <Ionicons name="help-circle-outline" size={24} color="#f39c12" />
                 <View>
-                  <Text style={styles.practiceButtonTitle}>Letter Tracing</Text>
-                  <Text style={styles.practiceButtonSubtitle}>Practice writing this letter</Text>
+                  <Text style={styles.practiceButtonTitle}>Letter Quiz</Text>
+                  <Text style={styles.practiceButtonSubtitle}>Test your recognition skills</Text>
                 </View>
                 <Ionicons name="chevron-forward" size={20} color="#bdc3c7" />
               </View>
@@ -94,10 +82,10 @@ export const LetterDetailView: React.FC<LetterDetailViewProps> = ({
 
             <TouchableOpacity style={styles.practiceButton}>
               <View style={styles.practiceButtonContent}>
-                <Ionicons name="volume-high-outline" size={24} color="#e74c3c" />
+                <Ionicons name="book-outline" size={24} color="#27ae60" />
                 <View>
-                  <Text style={styles.practiceButtonTitle}>Pronunciation</Text>
-                  <Text style={styles.practiceButtonSubtitle}>Listen and repeat</Text>
+                  <Text style={styles.practiceButtonTitle}>Word Examples</Text>
+                  <Text style={styles.practiceButtonSubtitle}>See this letter in words</Text>
                 </View>
                 <Ionicons name="chevron-forward" size={20} color="#bdc3c7" />
               </View>

@@ -44,6 +44,7 @@ export default function FlashcardsScreen({ navigation }: { navigation: any }) {
     }
   };
 
+
   const frontInterpolate = flipAnimation.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '180deg'],

@@ -97,8 +97,8 @@ if (deviceInfo.hasDynamicIsland && useDynamicIsland && edges.includes('top')) {
 <SafeAreaWrapper backgroundColor="#f8f9fa" headerColor="#3498db">
   <HeaderSafeArea backgroundColor="#3498db">
     <View style={styles.headerContent}>
-      <Text style={styles.greeting}>വണക്കം!</Text>
-      <Text style={styles.greetingTransliteration}>vanakkam! (Hello!)</Text>
+      <Text style={styles.greeting}>നമസ്കാരം!</Text>
+      <Text style={styles.greetingTransliteration}>Namaskaram! (Hello!)</Text>
       <Text style={styles.subtitle}>Ready to learn Malayalam?</Text>
     </View>
   </HeaderSafeArea>

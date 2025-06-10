@@ -2,7 +2,6 @@ import { MalayalamWord } from '../types';
 
 export const greetings: MalayalamWord[] = [
   { id: 'gr1', malayalam: 'നമസ്കാരം', transliteration: 'namaskaaram', english: 'hello/greetings', category: 'greetings', difficulty: 'beginner' },
-  { id: 'gr2', malayalam: 'വണക്കം', transliteration: 'vanakkam', english: 'hello (informal)', category: 'greetings', difficulty: 'beginner' },
   { id: 'gr3', malayalam: 'സുപ്രഭാതം', transliteration: 'suprabhaatham', english: 'good morning', category: 'greetings', difficulty: 'intermediate' },
   { id: 'gr4', malayalam: 'ശുഭ സായാഹ്നം', transliteration: 'shubha saayaahnam', english: 'good evening', category: 'greetings', difficulty: 'intermediate' },
   { id: 'gr5', malayalam: 'ശുഭ രാത്രി', transliteration: 'shubha raathri', english: 'good night', category: 'greetings', difficulty: 'intermediate' },
