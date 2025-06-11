@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { basicWords } from '../data/basicWords';
 import { SafeAreaWrapper, HeaderSafeArea } from '../components/SafeAreaWrapper';
+import { useProgress } from '../contexts/ProgressContext';
 
 export default function FlashcardsScreen({ navigation }: { navigation: any }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [flipAnimation] = useState(new Animated.Value(0));
+  const { updateFlashcardProgress } = useProgress();
 
   const currentWord = basicWords[currentIndex];
 
@@ -28,8 +30,12 @@ export default function FlashcardsScreen({ navigation }: { navigation: any }) {
     setIsFlipped(!isFlipped);
   };
 
-  const nextCard = () => {
+  const nextCard = async () => {
     if (currentIndex < basicWords.length - 1) {
+      // Track progress for current card
+      const progressPercentage = Math.round(((currentIndex + 1) / basicWords.length) * 100);
+      await updateFlashcardProgress(currentWord.id, progressPercentage);
+      
       setCurrentIndex(currentIndex + 1);
       setIsFlipped(false);
       flipAnimation.setValue(0);

@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { enhancedVowels, enhancedConsonants, malayalamNumbers, conjuncts, malayalamSymbols, EnhancedMalayalamLetter } from '../data/enhancedLetters';
 import { SafeAreaWrapper, HeaderSafeArea } from '../components/SafeAreaWrapper';
 import { LetterDetailView, LetterProgress, LetterQuiz } from '../components/LetterLearning';
+import { useProgress } from '../contexts/ProgressContext';
 
 interface EnhancedLetterCardProps {
   letter: EnhancedMalayalamLetter;
@@ -36,28 +37,6 @@ const EnhancedLetterCard: React.FC<EnhancedLetterCardProps> = ({ letter, onPress
   );
 };
 
-interface TabButtonProps {
-  title: string;
-  subtitle: string;
-  count: number;
-  isActive: boolean;
-  onPress: () => void;
-  icon: string;
-}
-
-const TabButton: React.FC<TabButtonProps> = ({ title, subtitle, count, isActive, onPress, icon }) => (
-  <TouchableOpacity 
-    style={[styles.tabButton, isActive && styles.activeTab]} 
-    onPress={onPress}
-  >
-    <Ionicons name={icon as any} size={24} color={isActive ? '#3498db' : '#7f8c8d'} />
-    <Text style={[styles.tabText, isActive && styles.activeTabText]}>{title}</Text>
-    <Text style={[styles.tabSubtext, isActive && styles.activeTabSubtext]}>{subtitle}</Text>
-    <View style={[styles.countBadge, isActive && styles.activeCountBadge]}>
-      <Text style={[styles.countText, isActive && styles.activeCountText]}>{count}</Text>
-    </View>
-  </TouchableOpacity>
-);
 
 interface LearningModeButtonProps {
   title: string;
@@ -84,7 +63,7 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
   const [activeTab, setActiveTab] = useState<TabType>('vowels');
   const [selectedLetter, setSelectedLetter] = useState<EnhancedMalayalamLetter | null>(null);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [completedLetters, setCompletedLetters] = useState<Set<string>>(new Set());
+  const { progress, markLetterCompleted, saveQuizScore, isLetterCompleted } = useProgress();
 
   const getCurrentLetters = () => {
     switch (activeTab) {
@@ -107,9 +86,9 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
     setSelectedLetter(letter);
   };
 
-  const handleLetterComplete = () => {
+  const handleLetterComplete = async () => {
     if (selectedLetter) {
-      setCompletedLetters(prev => new Set([...prev, selectedLetter.id]));
+      await markLetterCompleted(selectedLetter.id);
     }
   };
 
@@ -117,7 +96,8 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
     setActiveTab('vowels');
   };
 
-  const handleQuizComplete = (score: number) => {
+  const handleQuizComplete = async (score: number) => {
+    await saveQuizScore(`letters_${activeTab}`, score);
     setShowQuiz(false);
     Alert.alert(
       'Quiz Complete!',
@@ -127,11 +107,11 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
   };
 
   const totalLetters = enhancedVowels.length + enhancedConsonants.length + malayalamNumbers.length + conjuncts.length + malayalamSymbols.length;
-  const vowelProgress = enhancedVowels.filter(letter => completedLetters.has(letter.id)).length;
-  const consonantProgress = enhancedConsonants.filter(letter => completedLetters.has(letter.id)).length;
-  const numberProgress = malayalamNumbers.filter(letter => completedLetters.has(letter.id)).length;
-  const conjunctProgress = conjuncts.filter(letter => completedLetters.has(letter.id)).length;
-  const symbolProgress = malayalamSymbols.filter(letter => completedLetters.has(letter.id)).length;
+  const vowelProgress = enhancedVowels.filter(letter => isLetterCompleted(letter.id)).length;
+  const consonantProgress = enhancedConsonants.filter(letter => isLetterCompleted(letter.id)).length;
+  const numberProgress = malayalamNumbers.filter(letter => isLetterCompleted(letter.id)).length;
+  const conjunctProgress = conjuncts.filter(letter => isLetterCompleted(letter.id)).length;
+  const symbolProgress = malayalamSymbols.filter(letter => isLetterCompleted(letter.id)).length;
 
   if (activeTab === 'practice') {
     return (
@@ -154,7 +134,7 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
 
         <ScrollView style={styles.practiceContainer} showsVerticalScrollIndicator={false}>
           <LetterProgress 
-            completed={completedLetters.size} 
+            completed={progress.completedLetters.length} 
             total={totalLetters} 
             category="Overall" 
           />
@@ -306,12 +286,12 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.compactTab, activeTab === 'practice' && styles.activeCompactTab]}
-            onPress={() => setActiveTab('practice')}
+            style={[styles.compactTab, (activeTab as string) === 'practice' && styles.activeCompactTab]}
+            onPress={() => setActiveTab('practice' as TabType)}
           >
-            <Ionicons name="school" size={16} color={activeTab === 'practice' ? 'white' : '#7f8c8d'} />
-            <Text style={[styles.compactTabText, activeTab === 'practice' && styles.activeCompactTabText]}>
-              ({completedLetters.size})
+            <Ionicons name="school" size={16} color={(activeTab as string) === 'practice' ? 'white' : '#7f8c8d'} />
+            <Text style={[styles.compactTabText, (activeTab as string) === 'practice' && styles.activeCompactTabText]}>
+              ({progress.completedLetters.length})
             </Text>
           </TouchableOpacity>
         </ScrollView>
@@ -329,7 +309,7 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
                 key={letter.id}
                 letter={letter}
                 onPress={handleLetterPress}
-                isCompleted={completedLetters.has(letter.id)}
+                isCompleted={isLetterCompleted(letter.id)}
               />
             ))}
           </View>
@@ -350,6 +330,7 @@ export default function LettersScreen({ navigation }: { navigation: any }) {
               setSelectedLetter(null);
               setShowQuiz(true);
             }}
+            onComplete={handleLetterComplete}
           />
         )}
       </Modal>

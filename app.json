@@ -8,6 +8,10 @@
     "userInterfaceStyle": "automatic",
     "backgroundColor": "#3498db",
     "primaryColor": "#3498db",
+    "description": "Learn Malayalam language with interactive lessons, flashcards, and quizzes. Master letters, vocabulary, and grammar through engaging practice exercises.",
+    "keywords": ["malayalam", "learning", "education", "language", "india", "kerala"],
+    "privacy": "public",
+    "githubUrl": "https://github.com/malayalam-learning/malayalam-app",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -21,6 +25,7 @@
       "userInterfaceStyle": "automatic",
       "bundleIdentifier": "com.malayalamlearning.app",
       "buildNumber": "1",
+      "category": "Education",
       "infoPlist": {
         "UISupportsDocumentBrowser": false,
         "UIRequiresFullScreen": false,
@@ -32,14 +37,20 @@
           "UIInterfaceOrientationPortraitUpsideDown",
           "UIInterfaceOrientationLandscapeLeft",
           "UIInterfaceOrientationLandscapeRight"
-        ]
+        ],
+        "NSLocalNetworkUsageDescription": "This app uses local network access for development purposes only.",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
+      "package": "com.malayalamlearning.app",
+      "versionCode": 1,
+      "permissions": [],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#3498db"
-      }
+      },
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.malayalamlearning.app"
     },
     "web": {
       "favicon": "./assets/favicon.png",

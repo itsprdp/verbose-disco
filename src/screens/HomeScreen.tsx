@@ -3,6 +3,10 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaWrapper, HeaderSafeArea } from '../components/SafeAreaWrapper';
 import { getDeviceInfo } from '../utils/deviceUtils';
+import { useProgress } from '../contexts/ProgressContext';
+import { enhancedVowels, enhancedConsonants, malayalamNumbers, conjuncts, malayalamSymbols } from '../data/enhancedLetters';
+import { basicWords } from '../data/basicWords';
+import { LoadingSpinner } from '../components/LoadingSpinner';
 
 interface LessonCardProps {
   title: string;
@@ -36,6 +40,23 @@ const LessonCard: React.FC<LessonCardProps> = ({
 
 export default function HomeScreen({ navigation }: { navigation: any }) {
   const deviceInfo = getDeviceInfo();
+  const { progress, loading } = useProgress();
+
+  if (loading) {
+    return (
+      <SafeAreaWrapper backgroundColor="#f8f9fa" headerColor="#3498db">
+        <LoadingSpinner message="Loading your progress..." />
+      </SafeAreaWrapper>
+    );
+  }
+
+  const totalLetters = enhancedVowels.length + enhancedConsonants.length + malayalamNumbers.length + conjuncts.length + malayalamSymbols.length;
+  const completedLetters = progress.completedLetters.length;
+  const lettersProgress = totalLetters > 0 ? Math.round((completedLetters / totalLetters) * 100) : 0;
+
+  const totalWords = basicWords.length;
+  const completedWords = progress.completedWords.length;
+  const wordsProgress = totalWords > 0 ? Math.round((completedWords / totalWords) * 100) : 0;
   
   const lessons = [
     {
@@ -44,7 +65,7 @@ export default function HomeScreen({ navigation }: { navigation: any }) {
       titleMalayalam: 'അക്ഷരങ്ങൾ പഠിക്കുക',
       titleTransliteration: 'aksharangal padhikkuka',
       icon: 'text',
-      progress: 0,
+      progress: lettersProgress,
       screen: 'Letters'
     },
     {
@@ -53,7 +74,7 @@ export default function HomeScreen({ navigation }: { navigation: any }) {
       titleMalayalam: 'പദസമ്പത്ത്',
       titleTransliteration: 'padasampatthu',
       icon: 'book',
-      progress: 0,
+      progress: wordsProgress,
       screen: 'Words'
     },
     {

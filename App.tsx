@@ -11,6 +11,8 @@ import LettersScreen from './src/screens/LettersScreen';
 import WordsScreen from './src/screens/WordsScreen';
 import GrammarScreen from './src/screens/GrammarScreen';
 import FlashcardsScreen from './src/screens/FlashcardsScreen';
+import { ProgressProvider } from './src/contexts/ProgressContext';
+import { ErrorBoundary } from './src/components/ErrorBoundary';
 
 const Stack = createStackNavigator();
 
@@ -45,27 +47,31 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <Stack.Navigator 
-          initialRouteName="Home"
-          screenOptions={{
-            headerShown: false,
-            gestureEnabled: true,
-            gestureDirection: 'horizontal',
-          }}
-        >
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Letters" component={LettersScreen} />
-          <Stack.Screen name="Words" component={WordsScreen} />
-          <Stack.Screen name="Grammar" component={GrammarScreen} />
-          <Stack.Screen name="Flashcards" component={FlashcardsScreen} />
-        </Stack.Navigator>
-        <StatusBar 
-          style={getStatusBarStyle()} 
-          backgroundColor="transparent"
-          translucent={true}
-        />
-      </NavigationContainer>
+      <ErrorBoundary>
+        <ProgressProvider>
+          <NavigationContainer>
+            <Stack.Navigator 
+              initialRouteName="Home"
+              screenOptions={{
+                headerShown: false,
+                gestureEnabled: true,
+                gestureDirection: 'horizontal',
+              }}
+            >
+              <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen name="Letters" component={LettersScreen} />
+              <Stack.Screen name="Words" component={WordsScreen} />
+              <Stack.Screen name="Grammar" component={GrammarScreen} />
+              <Stack.Screen name="Flashcards" component={FlashcardsScreen} />
+            </Stack.Navigator>
+            <StatusBar 
+              style={getStatusBarStyle()} 
+              backgroundColor="transparent"
+              translucent={true}
+            />
+          </NavigationContainer>
+        </ProgressProvider>
+      </ErrorBoundary>
     </SafeAreaProvider>
   );
 }

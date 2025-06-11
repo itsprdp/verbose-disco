@@ -9,13 +9,15 @@ interface LetterDetailViewProps {
   onClose: () => void;
   onPractice: () => void;
   onQuiz: () => void;
+  onComplete?: () => void;
 }
 
 export const LetterDetailView: React.FC<LetterDetailViewProps> = ({
   letter,
   onClose,
   onPractice,
-  onQuiz
+  onQuiz,
+  onComplete
 }) => {
   const [activeTab, setActiveTab] = useState<'info' | 'examples' | 'practice'>('info');
 

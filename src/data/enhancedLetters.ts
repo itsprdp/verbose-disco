@@ -10,6 +10,7 @@ export interface EnhancedMalayalamLetter extends MalayalamLetter {
   difficulty: 'beginner' | 'intermediate' | 'advanced';
   category: 'vowel' | 'consonant' | 'number' | 'conjunct' | 'symbol';
   description: string;
+  formationSteps?: string[];
 }
 
 export const enhancedVowels: EnhancedMalayalamLetter[] = [
