@@ -9,9 +9,6 @@
     "backgroundColor": "#3498db",
     "primaryColor": "#3498db",
     "description": "Learn Malayalam language with interactive lessons, flashcards, and quizzes. Master letters, vocabulary, and grammar through engaging practice exercises.",
-    "keywords": ["malayalam", "learning", "education", "language", "india", "kerala"],
-    "privacy": "public",
-    "githubUrl": "https://github.com/malayalam-learning/malayalam-app",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -25,7 +22,6 @@
       "userInterfaceStyle": "automatic",
       "bundleIdentifier": "com.malayalamlearning.app",
       "buildNumber": "1",
-      "category": "Education",
       "infoPlist": {
         "UISupportsDocumentBrowser": false,
         "UIRequiresFullScreen": false,
